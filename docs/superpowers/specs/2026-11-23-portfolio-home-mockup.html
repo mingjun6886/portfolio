@@ -1,0 +1,96 @@
+<style>
+  .shot{border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+  .B{background:#fafaf7;color:#1c1c1a;font-family:-apple-system,"Segoe UI",Inter,sans-serif;padding:28px 44px 40px}
+  .B .serif{font-family:Georgia,"Times New Roman",serif}
+  .B .mut{color:#6b6b66}
+  .B .nav{display:flex;justify-content:space-between;font-size:13px;color:#6b6b66;margin-bottom:36px}
+  .B .nav b{color:#1c1c1a}
+  .B .hi{font-family:Georgia,serif;font-size:34px;line-height:1.15;margin:0 0 12px}
+  .B .hi em{color:#1d4ed8}
+  .B .intro{font-size:15px;line-height:1.65;color:#3a3a36;max-width:600px;margin:0}
+  .B .facts{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:12.5px;color:#6b6b66;margin:16px 0 20px}
+  .B .facts b{color:#1c1c1a;font-weight:600}
+  .B .btns{display:flex;gap:18px;font-size:13px;align-items:center}
+  .B .btn{background:#1c1c1a;color:#fff;padding:9px 18px;border-radius:999px}
+  .B .lnk{padding:9px 0;border-bottom:1px solid #1c1c1a}
+  .B .photo{background:linear-gradient(160deg,#e9e4d8,#c9c0aa);display:flex;align-items:center;justify-content:center;color:#6b5f45;font-size:12px}
+  .B .sec{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#6b6b66;border-top:1px solid #e7e5df;padding-top:14px;margin:46px 0 18px}
+  .B .feat{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;align-items:center;margin-bottom:26px}
+  .B .feat.rev{grid-template-columns:1fr 1.25fr}
+  .B .img{border-radius:12px;height:170px;display:flex;align-items:center;justify-content:center;font-size:12px}
+  .B .kick{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#6b6b66}
+  .B .t{font-family:Georgia,serif;font-size:26px;margin:4px 0}
+  .B .nums{display:flex;gap:22px;margin-top:12px}
+  .B .nums b{display:block;font-size:22px;font-weight:600}
+  .B .nums span{font-size:11px;color:#6b6b66}
+  .B .more{font-size:12px;margin-top:12px;color:#1d4ed8}
+  .B .chips{display:flex;gap:8px;margin-bottom:14px;font-size:12px}
+  .B .chip{padding:5px 12px;border-radius:999px;border:1px solid #d6d3cb}
+  .B .chip.on{background:#1c1c1a;color:#fff;border-color:#1c1c1a}
+  .B .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .B .tile{background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+  .B .tile .code{font-size:11px;color:#1d4ed8;font-weight:600}
+  .B .tile .nm{font-family:Georgia,serif;font-size:17px;margin:3px 0}
+  .B .tile p{font-size:12px;color:#6b6b66;margin:0}
+  .B .tl{display:grid;grid-template-columns:110px 1fr;gap:8px 18px;font-size:14px}
+  .B .foot{font-family:Georgia,serif;font-size:34px;margin:52px 0 6px}
+  .pin{display:inline-block;background:#fde68a;color:#78350f;font-size:11px;padding:2px 7px;border-radius:4px;margin-left:6px;font-family:-apple-system,sans-serif;font-style:normal;vertical-align:middle}
+</style>
+
+<h2>Trang chủ đầy đủ theo các lựa chọn của bạn</h2>
+<p class="subtitle">Hướng B (tạp chí) + phần đầu kiểu 1 (ảnh tròn bên trái) + chức danh Cloud &amp; ML Engineer. Nhãn vàng là ghi chú cho bạn, không xuất hiện trên site thật.</p>
+
+<div class="shot"><div class="B">
+  <div class="nav"><b>Minh Quan Nguyen</b><span>Work &nbsp;&nbsp; Coursework &nbsp;&nbsp; About &nbsp;&nbsp; CV ↓</span></div>
+
+  <div style="display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:start">
+    <div class="photo" style="width:150px;height:150px;border-radius:50%">[ ảnh của bạn ]</div>
+    <div>
+      <div class="hi">Hi, I'm Quan. <em>I build cloud systems and ship ML models — and I measure them.</em></div>
+      <p class="intro">I'm a Melbourne-based cloud and ML engineer studying at Monash University. I write cloud infrastructure as code and put machine-learning models behind real APIs — most recently WildLens, a serverless wildlife-tagging platform on AWS, and the voice assistant in FIREBREAK, built with a team of five. I'm looking for a graduate or junior role in cloud, platform or ML engineering.</p>
+      <div class="facts"><span><b>Melbourne</b>, Australia</span><span><b>Monash University</b> · [tên bằng]</span><span>Available <b>[tháng/năm]</b></span><span>[quyền làm việc]<span class="pin">tùy bạn</span></span></div>
+      <div class="btns"><span class="btn">Download CV</span><span class="lnk">GitHub</span><span class="lnk">LinkedIn</span><span class="lnk">Copy email</span></div>
+    </div>
+  </div>
+
+  <div class="sec">Selected work</div>
+  <div class="feat">
+    <div class="img" style="background:linear-gradient(135deg,#d9e4d0,#a8bf98);color:#3d5232">[ ảnh chụp WildLens ]</div>
+    <div><div class="kick">Solo project · AWS</div><div class="t">WildLens</div>
+      <div class="mut" style="font-size:13px">Camera-trap photos and clips, tagged with species by a two-stage ML pipeline and searchable through a secured API.</div>
+      <div class="nums"><div><b>~$4</b><span>worst-case cost (was ~$80)</span></div><div><b>100%</b><span>Terraform</span></div><div><b>13</b><span>pipeline stages</span></div></div>
+      <div class="more">Read case study → &nbsp;·&nbsp; Live demo ↗</div></div>
+  </div>
+  <div class="feat rev">
+    <div><div class="kick">Team of 5 · Full-stack + voice AI</div><div class="t">FIREBREAK</div>
+      <div class="mut" style="font-size:13px">A household bushfire-preparedness app with a voice assistant. Vue 3 + FastAPI, shipped in three assessed iterations.</div>
+      <div class="nums"><div><b>128</b><span>of 301 commits (top)</span></div><div><b>3</b><span>live iterations</span></div><div><b>Live</b><span>cubesix.me</span></div></div>
+      <div class="more">Read case study → &nbsp;·&nbsp; Live site ↗</div></div>
+    <div class="img" style="background:linear-gradient(135deg,#f3d9c4,#e0a77c);color:#7a3f17">[ ảnh chụp FIREBREAK ]</div>
+  </div>
+  <div class="feat">
+    <div class="img" style="background:linear-gradient(135deg,#d4dcef,#9fb0d8);color:#2d3e6b">[ biểu đồ load test CloudEco ]</div>
+    <div><div class="kick">Solo · Kubernetes</div><div class="t">CloudEco</div>
+      <div class="mut" style="font-size:13px">YOLOv8 wildlife-detection API on a self-built 3-node Kubernetes cluster on Oracle Cloud.</div>
+      <div class="nums"><div><b>1→8</b><span>pods load-tested</span></div><div><b>ONNX</b><span>runtime</span></div><div><b>3</b><span>nodes, kubeadm</span></div></div>
+      <div class="more">Read case study →</div></div>
+  </div>
+
+  <div class="sec">More projects &amp; coursework</div>
+  <div class="chips"><span class="chip on">All</span><span class="chip">Cloud</span><span class="chip">AI / ML</span><span class="chip">Planning</span><span class="chip">Data</span></div>
+  <div class="grid">
+    <div class="tile"><div class="code">FIT5225 · Team</div><div class="nm">Aussie EcoLens</div><p>Multi-cloud serverless wildlife observation platform.</p></div>
+    <div class="tile"><div class="code">FIT5222 · Write-up only<span class="pin">code private</span></div><div class="nm">Too Many Chefs</div><p>PDDL planning controller for an Overcooked-style kitchen.</p></div>
+    <div class="tile"><div class="code">FIT5222 · Write-up only</div><div class="nm">Piglet path-finding</div><p>Search algorithms for grid path-finding.</p></div>
+    <div class="tile"><div class="code">COMP2200</div><div class="nm">Data Science portfolio</div><p>[mô tả tạm]</p></div>
+    <div class="tile"><div class="code">COMP3210</div><div class="nm">Big Data</div><p>[mô tả tạm]</p></div>
+    <div class="tile"><div class="code">COMP1350</div><div class="nm">Database design</div><p>[mô tả tạm]</p></div>
+  </div>
+
+  <div class="sec">Experience &amp; education</div>
+  <div class="tl"><span class="mut">2026</span><span><b>Monash University</b> — [tên bằng] · Cloud Computing, ML, NLP, Planning, Industry Experience</span>
+    <span class="mut">[năm]</span><span><b>Macquarie University</b> — [tên bằng] · Data Science, Big Data, Databases</span></div>
+
+  <div class="foot">Let's talk.</div>
+  <div class="mut" style="font-size:14px">minhquan.nguyen1202@gmail.com · GitHub · LinkedIn · Melbourne</div>
+</div></div>
