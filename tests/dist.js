@@ -11,3 +11,9 @@ export function allDistHtml(dir = '') {
     e.isDirectory() ? allDistHtml(join(dir, e.name)) : e.name.endsWith('.html') ? [join(dir, e.name)] : [],
   );
 }
+
+export function cssFileFor(htmlRel) {
+  const m = readDist(htmlRel).match(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"/);
+  if (!m) throw new Error(`no stylesheet linked in ${htmlRel}`);
+  return m[1].replace(/^\//, '');
+}

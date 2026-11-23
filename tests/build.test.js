@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readDist, allDistHtml } from './dist.js';
+import { readDist, allDistHtml, cssFileFor } from './dist.js';
 
 test('head is complete', () => {
   const html = readDist('index.html');
@@ -74,4 +74,10 @@ test('wildlens links its live demo and walkthrough', () => {
   const html = readDist('projects/wildlens/index.html');
   assert.match(html, /d1y0xvoewbydft\.cloudfront\.net/);
   assert.match(html, /diagrams\/pipeline\.html/);
+});
+
+test('layout is mobile-safe', () => {
+  const css = readDist(cssFileFor('index.html'));
+  assert.match(css, /@media \((max-width:\s*|width<=\s*)720px\)/);
+  assert.match(css, /overflow-wrap:\s*anywhere/);
 });
