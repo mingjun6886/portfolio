@@ -3,6 +3,8 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const findPlaceholders = (html) => [...html.matchAll(/TODO\(Quan\)[^<"]*|todo-quan/g)].map((m) => m[0]);
+// LinkedIn answers scripted requests with 999 or resets them, so it can never pass this check.
+export const isCheckable = (url) => !/(^|\.)linkedin\.com$/.test(new URL(url).hostname);
 export const extractRefs = (html) => [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
 
 const walk = (dir) =>
@@ -33,7 +35,7 @@ async function main() {
     for (const ref of extractRefs(html)) {
       if (ref.startsWith('mailto:') || ref.startsWith('#') || ref.startsWith('data:')) continue;
       if (/^https?:\/\//.test(ref)) {
-        if (!ref.includes('todo-quan')) external.add(ref);
+        if (!ref.includes('todo-quan') && isCheckable(ref)) external.add(ref);
       } else if (!ref.startsWith('/_vercel/')) {
         const path = join(dist, ref.split(/[?#]/)[0]);
         if (!existsSync(path) && !existsSync(join(path, 'index.html'))) problems.push(`missing file in ${page}: ${ref}`);

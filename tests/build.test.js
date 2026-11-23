@@ -51,8 +51,18 @@ test('no tile is hidden in static HTML', () => {
   assert.doesNotMatch(readDist('index.html'), /data-tags="[^"]*"[^>]*\shidden/);
 });
 test('private repos are never linked', () => {
-  const html = readDist('index.html');
-  for (const bad of ['fit5222-student-repositories', 'too-many-chefs-mquannguyen', 'FIT5225_Assignment2_Group132']) assert.ok(!html.includes(bad), bad);
+  for (const f of allDistHtml()) {
+    const html = readDist(f);
+    for (const bad of ['fit5222-student-repositories', 'too-many-chefs-mquannguyen', 'mingjun6886/too-many-chefs', 'FIT5225_Assignment2_Group132']) assert.ok(!html.includes(bad), `${bad} in ${f}`);
+  }
+});
+test('cloudeco does not claim more pods than ran', () => {
+  const html = readDist('projects/cloudeco/index.html');
+  assert.doesNotMatch(html, /1→8/);
+  assert.match(html, /8 requested/);
+});
+test('wildlens cost claim says what the $80 is', () => {
+  assert.match(readDist('index.html'), /without the queue/);
 });
 
 test('detail pages exist only for entries with a body', () => {
@@ -67,7 +77,7 @@ test('team project states size and role', () => {
 test('bare project renders without empty boxes', () => {
   const html = readDist('projects/too-many-chefs/index.html');
   assert.doesNotMatch(html, /<img(?![^>]*src="[^"]+")/);
-  assert.doesNotMatch(html, /class="metrics"/);
+  assert.doesNotMatch(html, /<dl class="metrics/);
   assert.doesNotMatch(html, /github\.com\/[^"\/]+\/[^"]+/);
 });
 test('wildlens links its live demo and walkthrough', () => {

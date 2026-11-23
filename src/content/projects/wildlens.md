@@ -6,7 +6,7 @@ period: Sep–Nov 2026
 tags: [Cloud, AI/ML]
 stack: [AWS, Terraform, Lambda (container), S3, SQS, Cognito, MegaDetector, SpeciesNet, GitHub Actions]
 metrics:
-  - { value: "~$4", label: "worst-case cost (was ~$80)" }
+  - { value: "~$4", label: "worst-case cost, vs ~$80 without the queue" }
   - { value: "100%", label: "Terraform" }
   - { value: "13", label: "pipeline stages" }
 links:

@@ -39,6 +39,6 @@ Everything about you (name, intro, degree, links, education) lives in `src/site.
 npm run predeploy
 ```
 
-It fails while any `TODO(Quan)` or the placeholder URL `todo-quan` remains, if a file is missing (like `/cv.pdf`), or if a link is dead. Set the real address in `astro.config.mjs` (`site`) so link previews use the right URL.
+It fails while any `TODO(Quan)` or the placeholder URL `todo-quan` remains, if a file is missing (like `/cv.pdf`), or if a link is dead (linkedin.com is skipped because it blocks scripts, so open your LinkedIn link yourself). The share image `public/og.png` is made from `scripts/og-card.html` (name and title only, no personal details); edit that file and re-screenshot it at 1200×630 if you change your title. Set the real address in `astro.config.mjs` (`site`) so link previews use the right URL.
 
 Deploy by importing the GitHub repo in Vercel (the Astro preset needs no settings).

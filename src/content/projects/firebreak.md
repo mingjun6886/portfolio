@@ -28,7 +28,7 @@ This was a team of five, built over three assessed iterations. I worked across t
 
 The app is a Vue 3 + Vite frontend over a FastAPI backend with MySQL, using TomTom Orbis for addresses and Bureau of Meteorology data for current conditions and fire danger.
 
-**Voice assistant.** A person can talk to the app while their hands are busy. The model does not run the app: it picks one action from a closed list, and the browser handlers can only navigate and read. A koala character in the corner is the voice button, and its face shows whether it is listening or talking.
+**Voice assistant.** A person can talk to the app while their hands are busy. The model does not run the app: it picks one action from a closed list, and the browser handlers can only navigate, read, or run the meet-up check, and never edit the plan. A koala character in the corner is the voice button, and its face shows whether it is listening or talking.
 
 ## Architecture
 

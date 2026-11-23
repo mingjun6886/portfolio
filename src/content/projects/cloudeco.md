@@ -8,8 +8,8 @@ tags: [Cloud, AI/ML]
 stack: [FastAPI, ONNX Runtime, YOLOv8, Docker, Kubernetes (kubeadm), Oracle Cloud, Terraform, Locust]
 metrics:
   - { value: "99%", label: "scaling efficiency, 1→2 pods" }
-  - { value: "2.0 req/s", label: "throughput at 8 replicas requested" }
-  - { value: "1→8", label: "replicas load-tested" }
+  - { value: "2.0 req/s", label: "throughput at the top step" }
+  - { value: "1→6", label: "pods running (8 requested)" }
 links:
   github: https://github.com/mingjun6886/cloudeco-wildlife-inference
 code_public: true
