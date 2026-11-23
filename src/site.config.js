@@ -11,7 +11,7 @@ export default {
   degree: 'Master of Artificial Intelligence (completes Dec 2026)',
   available: 'from Jan 2027',
   workRights: null, // optional; null hides it
-  photo: null, // e.g. '/photo.jpg'; null shows initials
+  photo: '/photo.jpg', // null shows initials
   cv: '/cv.pdf',
   email: 'minhquan.nguyen1202@gmail.com',
   github: 'https://github.com/mingjun6886',

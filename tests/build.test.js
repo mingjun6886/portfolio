@@ -34,7 +34,8 @@ test('hero shows photo or initials, intro and actions', () => {
   assert.match(html, /cloud and ML engineer/);
   assert.match(html, /<a(?=[^>]*href="\/cv\.pdf")(?=[^>]*\bdownload\b)[^>]*>/);
   assert.match(html, /href="https:\/\/github\.com\/mingjun6886"/);
-  assert.match(html, /class="[^"]*initials/);
+  assert.match(html, /<img[^>]*class="photo"[^>]*src="\/photo\.jpg"|<img[^>]*src="\/photo\.jpg"[^>]*class="photo"/);
+  assert.doesNotMatch(html, /class="[^"]*initials/);
   assert.doesNotMatch(html, /Work rights/i);
 });
 test('contact keeps a mailto fallback', () => {
