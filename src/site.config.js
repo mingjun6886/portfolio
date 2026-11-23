@@ -20,7 +20,5 @@ export default {
     { years: 'Feb 2025 – Dec 2026 (expected)', place: 'Monash University', role: 'Master of Artificial Intelligence', detail: 'Machine Learning, NLP, Cloud Computing, Big Data Processing' },
     { years: 'Feb 2023 – Dec 2024', place: 'Macquarie University', role: 'Bachelor of Information Technology, Data Science major', detail: 'AI for Text and Vision, Graphics, Multivariate Methods and Data Mining, Database Systems' },
   ],
-  experience: [
-    { years: 'Nov 2025 – Mar 2026', place: 'CMC Telecom (Vietnam)', role: 'AI Engineer Intern', detail: 'LLM-powered career platform over 1,081 real IT job postings: hybrid retrieval, a text-to-SQL agent and 323 offline tests in CI' },
-  ], // empty hides the experience list
+  experience: [], // empty hides the experience list
 };
