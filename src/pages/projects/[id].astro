@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Contact from '../../components/Contact.astro';
+import site from '../../site.config.js';
+import { kicker, hasDetailPage, visibleLinks } from '../../lib/projects.js';
+
+export async function getStaticPaths() {
+  const entries = (await getCollection('projects')).filter(hasDetailPage);
+  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const links = visibleLinks(d);
+const { Content } = await render(entry);
+const facts = [
+  d.team_size > 1 && ['Role', d.role],
+  d.stack.length > 0 && ['Stack', d.stack.join(', ')],
+  ['Period', d.period],
+].filter(Boolean);
+---
+<Base title={`${d.title} — ${site.name}`} description={d.summary} image={d.cover}>
+  <Nav />
+  <article class="container project">
+    <p><a class="back" href="/#work">← All work</a></p>
+    <p class="kick">{kicker(d)} · {d.period}</p>
+    <h1>{d.title}</h1>
+    <p class="lede">{d.summary}</p>
+    <div class="btns">
+      {links.demo && <a class="btn" href={links.demo}>Live demo ↗</a>}
+      {links.github && <a class="lnk" href={links.github}>GitHub</a>}
+      {links.diagram && <a class="lnk" href={links.diagram}>Architecture walkthrough</a>}
+    </div>
+    {d.cover && <img class="cover wide" src={d.cover} alt={`${d.title} screenshot`} width="1200" height="750" />}
+    {d.metrics.length > 0 && (
+      <dl class="metrics big">{d.metrics.map((m) => <div><dt>{m.value}</dt><dd>{m.label}</dd></div>)}</dl>
+    )}
+    <dl class="facts-list">{facts.map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}</dl>
+    <div class="prose"><Content /></div>
+  </article>
+  <Contact />
+</Base>

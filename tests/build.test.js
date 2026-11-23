@@ -54,3 +54,24 @@ test('private repos are never linked', () => {
   const html = readDist('index.html');
   for (const bad of ['fit5222-student-repositories', 'too-many-chefs-mquannguyen', 'FIT5225_Assignment2_Group132']) assert.ok(!html.includes(bad), bad);
 });
+
+test('detail pages exist only for entries with a body', () => {
+  for (const id of ['wildlens', 'firebreak', 'cloudeco', 'too-many-chefs', 'piglet']) assert.ok(distExists(`projects/${id}/index.html`), id);
+  assert.equal(distExists('projects/aussie-ecolens/index.html'), false);
+});
+test('team project states size and role', () => {
+  const html = readDist('projects/firebreak/index.html');
+  assert.match(html, /Team of 5/);
+  assert.match(html, /voice assistant/i);
+});
+test('bare project renders without empty boxes', () => {
+  const html = readDist('projects/too-many-chefs/index.html');
+  assert.doesNotMatch(html, /<img(?![^>]*src="[^"]+")/);
+  assert.doesNotMatch(html, /class="metrics"/);
+  assert.doesNotMatch(html, /github\.com\/[^"\/]+\/[^"]+/);
+});
+test('wildlens links its live demo and walkthrough', () => {
+  const html = readDist('projects/wildlens/index.html');
+  assert.match(html, /d1y0xvoewbydft\.cloudfront\.net/);
+  assert.match(html, /diagrams\/pipeline\.html/);
+});

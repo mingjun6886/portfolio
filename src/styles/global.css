@@ -73,3 +73,21 @@ h1 em { color: var(--accent); }
   h1 { font-size: 28px; }
   .nav-links { gap: 14px; }
 }
+
+/* project page */
+.project h1 { font-size: 40px; margin: 4px 0 8px; }
+.back { font-size: 13px; color: var(--muted); text-decoration: none; }
+.lede { font-size: 16px; color: var(--muted); margin: 0 0 18px; }
+.cover.wide { margin: 24px 0 0; aspect-ratio: auto; max-height: 520px; object-fit: contain; }
+.metrics.big { margin: 22px 0 0; }
+.facts-list { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 6px 18px; font-size: 14px; margin: 24px 0 0; }
+.facts-list dt { color: var(--muted); }
+.facts-list dd { margin: 0; }
+.prose { max-width: 720px; margin-top: 28px; font-size: 15px; }
+.prose h2 { font: 400 22px var(--serif); margin: 36px 0 8px; }
+.prose p, .prose li { color: #3a3a36; }
+.prose table { border-collapse: collapse; width: 100%; font-size: 13px; display: block; overflow-x: auto; }
+.prose th, .prose td { border-bottom: 1px solid var(--rule); padding: 6px 10px; text-align: left; white-space: nowrap; }
+.prose pre { background: var(--card); border: 1px solid var(--rule); border-radius: 8px; padding: 12px; overflow-x: auto; font-size: 12.5px; }
+.prose code { font-size: .9em; }
+@media (max-width: 720px) { .project h1 { font-size: 32px; } }
