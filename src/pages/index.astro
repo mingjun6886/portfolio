@@ -1,7 +1,30 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import FeaturedProject from '../components/FeaturedProject.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
 import site from '../site.config.js';
+import { featuredProjects, otherProjects } from '../lib/projects.js';
+
+const all = await getCollection('projects');
+const featured = featuredProjects(all);
+const others = otherProjects(all);
 ---
 <Base title={`${site.name} — ${site.title}`}>
-  <div class="container"></div>
+  <Nav />
+  <Hero />
+  <section id="work" class="container">
+    <h2 class="sec">Selected work</h2>
+    {featured.map((entry, i) => <FeaturedProject entry={entry} index={i} />)}
+  </section>
+  <section id="coursework" class="container">
+    <h2 class="sec">More projects &amp; coursework</h2>
+    <ProjectGrid entries={others} />
+  </section>
+  <About />
+  <Contact />
 </Base>

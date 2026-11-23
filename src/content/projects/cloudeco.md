@@ -8,8 +8,8 @@ tags: [Cloud, AI/ML]
 stack: [FastAPI, ONNX Runtime, YOLOv8, Docker, Kubernetes (kubeadm), Oracle Cloud, Terraform, Locust]
 metrics:
   - { value: "99%", label: "scaling efficiency, 1→2 pods" }
-  - { value: "2.0 req/s", label: "throughput at 8 pods" }
-  - { value: "1→8", label: "pods load-tested" }
+  - { value: "2.0 req/s", label: "throughput at 8 replicas requested" }
+  - { value: "1→8", label: "replicas load-tested" }
 links:
   github: https://github.com/mingjun6886/cloudeco-wildlife-inference
 code_public: true
@@ -37,14 +37,14 @@ Client -> OCI Network Load Balancer -> NodePort :30080
 
 Load was scaled with the deployment for two minutes per configuration, with a 3:1 mix of predict to annotate requests.
 
-| Pods | Users | Throughput (req/s) | p95 | Failures | Scaling efficiency |
+| Replicas requested | Users | Throughput (req/s) | p95 | Failures | Scaling efficiency |
 |-----:|------:|-------------------:|----:|---------:|-------------------:|
 | 1 | 5 | 0.63 | 8.5 s | 0 | — |
 | 2 | 10 | 1.24 | 9.5 s | 0 | 99% |
 | 4 | 20 | 1.76 | 15 s | 0 | 70% |
 | 8 | 25 | 2.00 | 23 s | 3 | 40% |
 
-The cluster has since been torn down, so there is no live endpoint.
+The results chart footnotes that at the top step only 6 of the 8 requested replicas were scheduled, because of node capacity. The cluster has since been torn down, so there is no live endpoint.
 
 ## What I learned
 

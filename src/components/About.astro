@@ -1,0 +1,11 @@
+---
+import site from '../site.config.js';
+const items = [...site.experience, ...site.education];
+const heading = site.experience.length ? 'Experience & education' : 'Education';
+---
+<section id="about" class="container">
+  <h2 class="sec">{heading}</h2>
+  <dl class="tl">
+    {items.map((i) => <><dt>{i.years}</dt><dd><strong>{i.place}</strong> — {i.role}<span class="mut"> · {i.detail}</span></dd></>)}
+  </dl>
+</section>

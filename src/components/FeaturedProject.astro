@@ -1,0 +1,20 @@
+---
+import { kicker, hasDetailPage } from '../lib/projects.js';
+const { entry, index } = Astro.props;
+const d = entry.data;
+---
+<article class={`feat${index % 2 === 1 ? ' rev' : ''}`}>
+  {d.cover && <img class="cover" src={d.cover} alt={`${d.title} screenshot`} width="1200" height="750" loading="lazy" />}
+  <div>
+    <p class="kick">{kicker(d)}</p>
+    <h3 class="t">{d.title}</h3>
+    <p class="mut">{d.summary}</p>
+    {d.metrics.length > 0 && (
+      <dl class="metrics">{d.metrics.map((m) => <div><dt>{m.value}</dt><dd>{m.label}</dd></div>)}</dl>
+    )}
+    <p class="more">
+      {hasDetailPage(entry) && <a href={`/projects/${entry.id}/`}>Read case study →</a>}
+      {d.links.demo && <a href={d.links.demo}>Live demo ↗</a>}
+    </p>
+  </div>
+</article>

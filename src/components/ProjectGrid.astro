@@ -1,0 +1,28 @@
+---
+import { kicker, hasDetailPage, filterTags } from '../lib/projects.js';
+const { entries } = Astro.props;
+const tags = filterTags(entries);
+---
+<div class="chips" role="group" aria-label="Filter projects">
+  <button type="button" class="chip" aria-pressed="true" data-tag="">All</button>
+  {tags.map((t) => <button type="button" class="chip" aria-pressed="false" data-tag={t}>{t}</button>)}
+</div>
+<div class="grid">
+  {entries.map((e) => (
+    <div class="tile" data-tags={e.data.tags.join(',')}>
+      <p class="code">{kicker(e.data)}</p>
+      <h3 class="nm">{hasDetailPage(e) ? <a href={`/projects/${e.id}/`}>{e.data.title}</a> : e.data.title}</h3>
+      <p>{e.data.summary}</p>
+    </div>
+  ))}
+</div>
+<script>
+  const chips = document.querySelectorAll('.chip');
+  chips.forEach((chip) => chip.addEventListener('click', () => {
+    const tag = chip.getAttribute('data-tag');
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+    document.querySelectorAll('.tile').forEach((tile) => {
+      tile.hidden = Boolean(tag) && !tile.getAttribute('data-tags').split(',').includes(tag);
+    });
+  }));
+</script>

@@ -1,0 +1,36 @@
+---
+import site from '../site.config.js';
+const facts = [site.location, site.university + ' · ' + site.degree, 'Available ' + site.available];
+if (site.workRights) facts.push(site.workRights);
+---
+<section class="hero container">
+  {site.photo
+    ? <img class="photo" src={site.photo} alt={`Photo of ${site.name}`} width="150" height="150" />
+    : <div class="photo initials" aria-hidden="true">MQ</div>}
+  <div>
+    <h1>{site.greeting} <em>{site.tagline}</em></h1>
+    <p class="intro">{site.intro}</p>
+    <ul class="facts">{facts.map((f) => <li>{f}</li>)}</ul>
+    <div class="btns">
+      <a class="btn" href={site.cv} download>Download CV</a>
+      <a class="lnk" href={site.github}>GitHub</a>
+      <a class="lnk" href={site.linkedin}>LinkedIn</a>
+      <button class="lnk" type="button" data-copy={site.email}>Copy email</button>
+    </div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    const label = btn.textContent;
+    btn.addEventListener('click', async () => {
+      const email = btn.getAttribute('data-copy');
+      try {
+        await navigator.clipboard.writeText(email);
+        btn.textContent = 'Copied';
+      } catch {
+        btn.textContent = email; // clipboard blocked: show the address instead
+      }
+      setTimeout(() => (btn.textContent = label), 2500);
+    });
+  });
+</script>
