@@ -4,7 +4,7 @@ summary: Camera-trap photos and clips, tagged with species by a two-stage ML pip
 team_size: 1
 period: Sep–Nov 2026
 tags: [Cloud, AI/ML]
-stack: [AWS, Terraform, Lambda (container), S3, SQS, Cognito, MegaDetector, SpeciesNet, GitHub Actions]
+stack: [AWS, Terraform, Lambda (container), S3, SQS, DynamoDB, Cognito, PyTorch, MegaDetector, GitHub Actions]
 metrics:
   - { value: "~$4", label: "worst-case cost, vs ~$80 without the queue" }
   - { value: "100%", label: "Terraform" }

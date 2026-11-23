@@ -8,8 +8,8 @@ export default {
   description: 'Minh Quan Nguyen — Cloud & ML Engineer in Melbourne. Projects with measured results: serverless ML on AWS, Kubernetes inference and a voice-assisted bushfire app.',
   location: 'Melbourne, Australia',
   university: 'Monash University',
-  degree: 'TODO(Quan): degree name',
-  available: 'TODO(Quan): month/year',
+  degree: 'Master of Artificial Intelligence (completes Dec 2026)',
+  available: 'from Jan 2027',
   workRights: null, // optional; null hides it
   photo: null, // e.g. '/photo.jpg'; null shows initials
   cv: '/cv.pdf',
@@ -17,8 +17,10 @@ export default {
   github: 'https://github.com/mingjun6886',
   linkedin: 'https://www.linkedin.com/in/minh-quan-nguyen-742b9142b/',
   education: [
-    { years: 'TODO(Quan): years', place: 'Monash University', role: 'TODO(Quan): degree name', detail: 'Cloud Computing, Machine Learning, NLP, Data Processing, Planning, Industry Experience' },
-    { years: 'TODO(Quan): years', place: 'Macquarie University', role: 'TODO(Quan): degree name', detail: 'Data Science, Big Data, Databases' },
+    { years: 'Feb 2025 – Dec 2026 (expected)', place: 'Monash University', role: 'Master of Artificial Intelligence', detail: 'Machine Learning, NLP, Cloud Computing, Big Data Processing' },
+    { years: 'Feb 2023 – Dec 2024', place: 'Macquarie University', role: 'Bachelor of Information Technology, Data Science major', detail: 'AI for Text and Vision, Graphics, Multivariate Methods and Data Mining, Database Systems' },
   ],
-  experience: [], // empty hides the experience list
+  experience: [
+    { years: 'Nov 2025 – Mar 2026', place: 'CMC Telecom (Vietnam)', role: 'AI Engineer Intern', detail: 'LLM-powered career platform over 1,081 real IT job postings: hybrid retrieval, a text-to-SQL agent and 323 offline tests in CI' },
+  ], // empty hides the experience list
 };
