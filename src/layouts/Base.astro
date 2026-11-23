@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import site from '../site.config.js';
+import Koala from '../components/Koala.astro';
 
 interface Props { title: string; description?: string; image?: string }
 const { title, description = site.description, image = '/og.png' } = Astro.props;
@@ -25,5 +26,6 @@ const imageUrl = new URL(image, Astro.site).href;
   </head>
   <body>
     <main><slot /></main>
+    <Koala />
   </body>
 </html>

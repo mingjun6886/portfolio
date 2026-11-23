@@ -91,3 +91,28 @@ h1 em { color: var(--accent); }
 .prose pre { background: var(--card); border: 1px solid var(--rule); border-radius: 8px; padding: 12px; overflow-x: auto; font-size: 12.5px; }
 .prose code { font-size: .9em; }
 @media (max-width: 720px) { .project h1 { font-size: 32px; } }
+
+/* koala */
+.koala { position: fixed; right: 20px; bottom: 0; z-index: 10; display: flex; flex-direction: column; align-items: flex-end; pointer-events: none; }
+.koala > * { pointer-events: auto; }
+.koala button { border: 0; background: none; padding: 0; cursor: pointer; position: relative; line-height: 0; }
+.koala-bubble { max-width: 220px; margin: 0 0 6px; padding: 8px 12px; background: var(--card); border: 1px solid var(--rule); border-radius: 12px; font-size: 13px; line-height: 1.4; box-shadow: 0 2px 8px rgba(0, 0, 0, .08); }
+.koala-bubble[hidden] { display: none; }
+.koala .eye { transition: transform .15s; animation: koala-blink 6s infinite; }
+.koala .eye + .eye { animation-delay: 0s; }
+.koala .pupil { transition: transform .08s linear; }
+.koala .ear { transform-box: fill-box; transform-origin: 50% 80%; }
+.koala.wiggle .ear-l { animation: koala-wiggle .7s; }
+.koala.hop button { animation: koala-hop .45s; }
+.koala.asleep .eye { animation: none; transform: scaleY(.12); }
+.koala .zzz { display: none; position: absolute; right: -6px; top: -18px; font: italic 14px var(--serif); color: var(--muted); line-height: 1; }
+.koala.asleep .zzz { display: block; animation: koala-zzz 2.4s infinite; }
+@keyframes koala-blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+@keyframes koala-wiggle { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-14deg); } 65% { transform: rotate(8deg); } }
+@keyframes koala-hop { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-16px); } }
+@keyframes koala-zzz { 0% { opacity: 0; transform: translateY(6px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-8px); } }
+@media (prefers-reduced-motion: reduce) {
+  .koala *, .koala *::before { animation: none !important; transition: none !important; }
+}
+@media (max-width: 720px) { .koala { display: none; } }
+@media print { .koala { display: none; } }

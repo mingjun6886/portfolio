@@ -92,3 +92,16 @@ test('layout is mobile-safe', () => {
   assert.match(css, /@media \((max-width:\s*|width<=\s*)720px\)/);
   assert.match(css, /overflow-wrap:\s*anywhere/);
 });
+
+test('koala is on every page, accessible and self-drawn', () => {
+  for (const f of allDistHtml()) {
+    const html = readDist(f);
+    assert.match(html, /<button[^>]*data-koala[^>]*aria-label="Poke the koala"/, f);
+    assert.match(html, /<svg[^>]*class="koala-art"/, f);
+  }
+});
+test('koala respects reduced motion and hides on phones', () => {
+  const css = readDist(cssFileFor('index.html'));
+  assert.match(css, /prefers-reduced-motion:\s*reduce/);
+  assert.match(css, /\.koala\{[^}]*display:none/);
+});
