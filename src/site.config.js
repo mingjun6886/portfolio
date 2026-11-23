@@ -15,7 +15,7 @@ export default {
   cv: '/cv.pdf',
   email: 'minhquan.nguyen1202@gmail.com',
   github: 'https://github.com/mingjun6886',
-  linkedin: 'TODO(Quan): LinkedIn URL',
+  linkedin: 'https://www.linkedin.com/in/minh-quan-nguyen-742b9142b/',
   education: [
     { years: 'TODO(Quan): years', place: 'Monash University', role: 'TODO(Quan): degree name', detail: 'Cloud Computing, Machine Learning, NLP, Data Processing, Planning, Industry Experience' },
     { years: 'TODO(Quan): years', place: 'Macquarie University', role: 'TODO(Quan): degree name', detail: 'Data Science, Big Data, Databases' },
